@@ -33,3 +33,29 @@ code {
 .label {
   @apply mt-2 text-lg font-medium;
 }
+
+.img-upload {
+  height: 100vh;
+  @apply md:w-full w-11/12 flex flex-col justify-center items-center bg-gray-800 m-4 p-4 rounded-lg;
+}
+
+.btn-file input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  @apply relative overflow-hidden flex justify-between items-center;
+}

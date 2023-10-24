@@ -1,0 +1,7 @@
+.input {
+  @apply w-11/12 bg-gray-800 m-4 p-4 rounded-lg md:w-1/4 md:h-screen md:overflow-y-scroll;
+}
+
+.input::-webkit-scrollbar {
+  display: none;
+}

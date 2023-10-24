@@ -6,12 +6,14 @@ interface inputState {
   coordinates: Coordinates | null;
   image: string | undefined;
   showCropper: boolean;
+  isUploaded: boolean;
 }
 
 const initialState: inputState = {
   coordinates: { width: 0, height: 0, top: 0, left: 0 },
   image: testImage,
   showCropper: false,
+  isUploaded: false,
 };
 
 const inputValuesSlice = createSlice({
@@ -30,10 +32,13 @@ const inputValuesSlice = createSlice({
     setShowCropper(state: inputState, action: PayloadAction<boolean>) {
       state.showCropper = action.payload;
     },
+    setIsUploaded(state: inputState, action: PayloadAction<boolean>) {
+      state.isUploaded = action.payload;
+    },
   },
 });
 
-export const { setCoordinates, setImage, setShowCropper } =
+export const { setCoordinates, setImage, setShowCropper, setIsUploaded } =
   inputValuesSlice.actions;
 
 export default inputValuesSlice.reducer;

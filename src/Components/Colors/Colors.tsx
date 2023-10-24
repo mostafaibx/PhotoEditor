@@ -1,10 +1,9 @@
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { useState } from "react";
 import useSlider from "../../hooks/useSlider";
 
 const Colors = () => {
   const { rangeHandler } = useSlider();
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
 
   const showMenuHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -16,7 +15,7 @@ const Colors = () => {
   };
 
   return (
-    <div className=" flex flex-col justify-center items-center md:m-4 relative">
+    <div className=" flex flex-col justify-center items-center  relative">
       <button onClick={showMenuHandler} className="btn">
         Colors
       </button>
