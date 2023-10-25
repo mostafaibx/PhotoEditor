@@ -1,5 +1,7 @@
 # Photo Editor Web App Documentation
 
+## Live Preview: https://photo-editor-lyart.vercel.app/
+
 ## Table of Contents
 
 - [Introduction](#introduction)
