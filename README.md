@@ -74,8 +74,6 @@ Contributions to this project are welcome. To contribute, follow these steps:
 4. Test your changes.
 5. Submit a push request.
 
-Please review the [CONTRIBUTING.md](CONTRIBUTING.md) file for more details.
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
