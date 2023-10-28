@@ -1,23 +1,27 @@
 import { useState } from "react";
 
 import useApplyFilter from "../../hooks/useApplyFilter";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { setShowMenu } from "../../Store/reducers/MenuesReducer";
 
 const PreFilters = () => {
-  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+  const menuState = useAppSelector((state) => state.menu);
 
   const showMenuHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setShowMenu(!showMenu);
+    const menuId = (e.target as HTMLButtonElement).id;
+    dispatch(setShowMenu(menuId));
   };
 
   const { applyFilter, isClicked } = useApplyFilter();
 
   return (
     <div className="flex flex-col justify-center items-center md:m-4 relative mx-4">
-      <button className="btn" onClick={showMenuHandler}>
+      <button className="btn" onClick={showMenuHandler} id="filter">
         Filters
       </button>
-      {showMenu && (
+      {menuState.menu.filter && (
         <div className="flex flex-col p-4 rounded-lg text-white bg-gray-800 bg-opacity-50 absolute left-0 top-10 md:top-0 z-10 md:relative top-0">
           <button
             className={`filter-btn ${

@@ -22,17 +22,17 @@ const Input = () => {
 
   return (
     <div className="input">
-      <h1 className="text-white text-3xl">Input</h1>
-      <form className="flex flex-row md:flex-col justify-center items-center">
+      <h1 className="header">your editor</h1>
+      <div className="flex flex-row md:flex-col w-full justify-center items-center">
         <Colors />
         <PreFilters />
         <button onClick={showCropHandler} className="btn">
           Crop
         </button>
-        <button className="btn m-4" onClick={uploadNewHandler}>
-          Upload New Image
-        </button>
-      </form>
+      </div>
+      <button className="btn m-4" onClick={uploadNewHandler}>
+        Upload New Image
+      </button>
     </div>
   );
 };

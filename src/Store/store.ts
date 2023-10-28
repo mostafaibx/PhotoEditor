@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import colorsReducers from "./reducers/inputValuesReducer";
 import cropReducers from "./reducers/cropReducers";
 import sliderReducers from "./reducers/sliderReducer";
+import MenuesReducer from "./reducers/MenuesReducer";
 
 // ...
 
@@ -10,6 +11,7 @@ const store = configureStore({
     colors: colorsReducers,
     crop: cropReducers,
     slider: sliderReducers,
+    menu: MenuesReducer,
   },
 });
 

@@ -1,7 +1,11 @@
 .input {
-  @apply w-11/12 bg-gray-800 m-4 p-4 rounded-lg md:w-1/4 md:h-screen md:overflow-y-scroll;
+  @apply flex flex-col justify-center items-center md:justify-between md:items-start w-11/12 bg-gray-800 m-4 p-4 rounded-lg md:w-1/4 md:h-screen md:overflow-y-scroll;
 }
 
 .input::-webkit-scrollbar {
   display: none;
+}
+
+.header {
+  @apply text-white text-2xl mb-4 p-4 uppercase font-extrabold underline decoration-blue-500 decoration-8 underline-offset-8;
 }

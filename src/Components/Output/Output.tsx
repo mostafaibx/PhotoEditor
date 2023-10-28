@@ -26,7 +26,6 @@ const Output = () => {
   };
 
   useEffect(() => {
-    console.log(cropState.image);
     const updateCanvas = (image: HTMLImageElement) => {
       const ctx = canvaRef.current && canvaRef.current.getContext("2d");
       if (image && ctx) {

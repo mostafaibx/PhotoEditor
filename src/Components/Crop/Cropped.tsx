@@ -25,13 +25,13 @@ const CroppedImage = () => {
   return (
     <>
       {state.showCropper && (
-        <div className="w-5/6 h-5/6">
+        <div className="w-5/6 h-5/6 flex flex-col justify-center items-center">
           <Cropper
             ref={cropperRef}
             src={state.image}
             style={{ width: "100%", height: "100%", objectFit: "contain" }}
           />
-          <button onClick={cropHandler} className="btn">
+          <button onClick={cropHandler} className="btn m-4">
             Done
           </button>
         </div>
