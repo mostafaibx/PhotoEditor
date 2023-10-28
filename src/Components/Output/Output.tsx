@@ -1,3 +1,4 @@
+import { setShowMenu } from "../../Store/reducers/MenuesReducer";
 import { setShowSlider } from "../../Store/reducers/sliderReducer";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import Slider from "../Colors/Slider";
@@ -60,6 +61,7 @@ const Output = () => {
   const [show, setShow] = useState(false);
   const hideSlider = () => {
     dispatch(setShowSlider("none"));
+    dispatch(setShowMenu("none"));
   };
 
   useEffect(() => {
