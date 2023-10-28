@@ -8,7 +8,7 @@ import {
   setSepia,
   setblur,
 } from "../Store/reducers/inputValuesReducer";
-import { setSatInput } from "../Store/reducers/sliderReducer";
+import { setSatInput, setShowSlider } from "../Store/reducers/sliderReducer";
 import { useAppDispatch } from "./reduxHooks";
 
 //we need to fix the fn use in redux state
@@ -17,10 +17,11 @@ const useSlider = () => {
   const disptch = useAppDispatch();
   const rangeHandler = (target: string, e: React.MouseEvent) => {
     e.preventDefault();
+    disptch(setShowSlider(target));
     if (target === "sat") {
       disptch(
         setSatInput({
-          id: "Saturation",
+          id: "saturation",
           step: 1,
           min: 0,
           max: 500,

@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface inputState {
+export type inputState = {
+  [key: string]: any;
   saturation: number;
   hue: number;
   contrast: number;
@@ -9,7 +10,7 @@ interface inputState {
   invert: number;
   sepia: number;
   blur: number;
-}
+};
 
 const initialState: inputState = {
   saturation: 100,

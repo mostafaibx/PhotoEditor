@@ -15,7 +15,7 @@ const Colors = () => {
   };
 
   return (
-    <div className=" flex flex-col justify-center items-center  relative">
+    <div className=" flex flex-col justify-center items-center relative">
       <button onClick={showMenuHandler} className="btn">
         Colors
       </button>
@@ -24,7 +24,7 @@ const Colors = () => {
         <div className="flex flex-col p-4 rounded-lg text-white bg-gray-800 bg-opacity-50 absolute left-0 top-10 md:top-0 z-10 md:relative ">
           <button
             className="filter-btn"
-            onClick={(e) => onClickHandler("sat", e)}
+            onClick={(e) => onClickHandler("saturation", e)}
           >
             Saturation
           </button>

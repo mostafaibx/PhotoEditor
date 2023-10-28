@@ -13,7 +13,7 @@ const PreFilters = () => {
   const { applyFilter, isClicked } = useApplyFilter();
 
   return (
-    <div className="flex flex-col justify-center items-center md:m-4 relative ">
+    <div className="flex flex-col justify-center items-center md:m-4 relative mx-4">
       <button className="btn" onClick={showMenuHandler}>
         Filters
       </button>

@@ -8,8 +8,9 @@ function App() {
   return (
     <div className="flex flex-col md:flex-row">
       <Input />
-      {isUploaded && <Output />}
-      {!isUploaded && <ImageUpload />}
+      <Output />
+      {/*  {isUploaded && <Output />}
+      {!isUploaded && <ImageUpload />} */}
     </div>
   );
 }
