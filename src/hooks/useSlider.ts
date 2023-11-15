@@ -18,7 +18,7 @@ const useSlider = () => {
   const rangeHandler = (target: string, e: React.MouseEvent) => {
     e.preventDefault();
     disptch(setShowSlider(target));
-    if (target === "sat") {
+    if (target === "saturation") {
       disptch(
         setSatInput({
           id: "saturation",

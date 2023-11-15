@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { setBrightness } from "./inputValuesReducer";
 
 type show = {
   [key: string]: boolean;

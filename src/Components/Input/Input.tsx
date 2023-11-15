@@ -1,7 +1,9 @@
+import { setShowMenu } from "../../Store/reducers/MenuesReducer";
 import {
   setIsUploaded,
   setShowCropper,
 } from "../../Store/reducers/cropReducers";
+import { setShowSlider } from "../../Store/reducers/sliderReducer";
 import { useAppDispatch } from "../../hooks/reduxHooks";
 import Colors from "../Colors/Colors";
 import PreFilters from "../PreDefinedFilters/PreFilters";
@@ -13,6 +15,8 @@ const Input = () => {
   const showCropHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     dispatch(setShowCropper(true));
+    dispatch(setShowSlider("none"));
+    dispatch(setShowMenu("none"));
   };
 
   const uploadNewHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
