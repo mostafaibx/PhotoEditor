@@ -1,28 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { setBrightness } from "./inputValuesReducer";
+import { RangeState } from "../../types";
 
-type show = {
-  [key: string]: boolean;
-  saturation: boolean;
-  hue: boolean;
-  contrast: boolean;
-  brightness: boolean;
-  grayscale: boolean;
-  invert: boolean;
-  sepia: boolean;
-  blur: boolean;
-};
-
-export type rangeState = {
-  id: string;
-  min: number;
-  max: number;
-  step: number;
-  show?: show;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
-
-const initialState: rangeState = {
+const initialState: RangeState = {
   id: "",
   min: 0,
   max: 0,
@@ -44,14 +23,14 @@ const sliderSlice = createSlice({
   name: "inputValues",
   initialState,
   reducers: {
-    setSatInput(state: rangeState, action: PayloadAction<rangeState>) {
+    setSatInput(state: RangeState, action: PayloadAction<RangeState>) {
       state.id = action.payload.id;
       state.min = action.payload.min;
       state.max = action.payload.max;
       state.step = action.payload.step;
       state.onChange = action.payload.onChange;
     },
-    setShowSlider(state: rangeState, action: PayloadAction<string>) {
+    setShowSlider(state: RangeState, action: PayloadAction<string>) {
       const keyToSetTrue = action.payload;
       for (const key in state.show) {
         state.show[key] = key === keyToSetTrue;

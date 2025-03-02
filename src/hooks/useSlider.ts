@@ -10,109 +10,102 @@ import {
 } from "../Store/reducers/inputValuesReducer";
 import { setSatInput, setShowSlider } from "../Store/reducers/sliderReducer";
 import { useAppDispatch } from "./reduxHooks";
+import { RangeState } from "../types";
 
-//we need to fix the fn use in redux state
+// Define slider configurations type
+type SliderConfig = {
+  id: string;
+  min: number;
+  max: number;
+  step: number;
+  action: (value: number) => any;
+};
+
+// Define valid slider types
+export type SliderType = 'saturation' | 'hue' | 'contrast' | 'brightness' | 'grayscale' | 'invert' | 'sepia' | 'blur';
 
 const useSlider = () => {
-  const disptch = useAppDispatch();
-  const rangeHandler = (target: string, e: React.MouseEvent) => {
+  const dispatch = useAppDispatch();
+
+  // Define all slider configurations in one place
+  const sliderConfigs: Record<SliderType, SliderConfig> = {
+    saturation: {
+      id: "saturation",
+      step: 1,
+      min: 0,
+      max: 500,
+      action: setSaturation
+    },
+    hue: {
+      id: "hue",
+      step: 1,
+      min: -180,
+      max: 180,
+      action: setHue
+    },
+    contrast: {
+      id: "contrast",
+      step: 1,
+      min: 0,
+      max: 1000,
+      action: setContrast
+    },
+    brightness: {
+      id: "brightness",
+      step: 1,
+      min: 0,
+      max: 1000,
+      action: setBrightness
+    },
+    grayscale: {
+      id: "grayscale",
+      step: 1,
+      min: 0,
+      max: 100,
+      action: setGrayscale
+    },
+    invert: {
+      id: "invert",
+      step: 1,
+      min: 0,
+      max: 100,
+      action: setInvert
+    },
+    sepia: {
+      id: "sepia",
+      step: 1,
+      min: 0,
+      max: 100,
+      action: setSepia
+    },
+    blur: {
+      id: "blur",
+      step: 1,
+      min: 0,
+      max: 100,
+      action: setblur
+    }
+  };
+
+  const rangeHandler = (target: SliderType, e: React.MouseEvent) => {
     e.preventDefault();
-    disptch(setShowSlider(target));
-    if (target === "saturation") {
-      disptch(
-        setSatInput({
-          id: "saturation",
-          step: 1,
-          min: 0,
-          max: 500,
-          onChange: (e) => disptch(setSaturation(parseInt(e.target.value))),
-        })
-      );
-    }
-
-    if (target === "hue") {
-      disptch(
-        setSatInput({
-          id: "hue",
-          step: 1,
-          min: -180,
-          max: 180,
-          onChange: (e) => disptch(setHue(parseInt(e.target.value))),
-        })
-      );
-    }
-
-    if (target === "contrast") {
-      disptch(
-        setSatInput({
-          id: "contrast",
-          step: 1,
-          min: 0,
-          max: 1000,
-          onChange: (e) => disptch(setContrast(parseInt(e.target.value))),
-        })
-      );
-    }
-
-    if (target === "brightness") {
-      disptch(
-        setSatInput({
-          id: "brightness",
-          step: 1,
-          min: 0,
-          max: 1000,
-          onChange: (e) => disptch(setBrightness(parseInt(e.target.value))),
-        })
-      );
-    }
-
-    if (target === "grayscale") {
-      disptch(
-        setSatInput({
-          id: "grayscale",
-          step: 1,
-          min: 0,
-          max: 100,
-          onChange: (e) => disptch(setGrayscale(parseInt(e.target.value))),
-        })
-      );
-    }
-
-    if (target === "invert") {
-      disptch(
-        setSatInput({
-          id: "invert",
-          step: 1,
-          min: 0,
-          max: 100,
-          onChange: (e) => disptch(setInvert(parseInt(e.target.value))),
-        })
-      );
-    }
-
-    if (target === "sepia") {
-      disptch(
-        setSatInput({
-          id: "sepia",
-          step: 1,
-          min: 0,
-          max: 100,
-          onChange: (e) => disptch(setSepia(parseInt(e.target.value))),
-        })
-      );
-    }
-
-    if (target === "blur") {
-      disptch(
-        setSatInput({
-          id: "blur",
-          step: 1,
-          min: 0,
-          max: 100,
-          onChange: (e) => disptch(setblur(parseInt(e.target.value))),
-        })
-      );
-    }
+    
+    // Show the selected slider
+    dispatch(setShowSlider(target));
+    
+    // Get the configuration for the selected slider
+    const config = sliderConfigs[target];
+    
+    // Set the slider input with the configuration
+    dispatch(
+      setSatInput({
+        id: config.id,
+        step: config.step,
+        min: config.min,
+        max: config.max,
+        onChange: (e) => dispatch(config.action(parseInt(e.target.value))),
+      })
+    );
   };
 
   return { rangeHandler };

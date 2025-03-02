@@ -1,18 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { FilterInputState } from "../../types";
 
-export type inputState = {
-  [key: string]: any;
-  saturation: number;
-  hue: number;
-  contrast: number;
-  brightness: number;
-  grayscale: number;
-  invert: number;
-  sepia: number;
-  blur: number;
-};
-
-const initialState: inputState = {
+const initialState: FilterInputState = {
   saturation: 100,
   contrast: 100,
   hue: 0,
@@ -27,28 +16,28 @@ const inputValuesSlice = createSlice({
   name: "inputValues",
   initialState,
   reducers: {
-    setSaturation(state: inputState, action: PayloadAction<number>) {
+    setSaturation(state: FilterInputState, action: PayloadAction<number>) {
       state.saturation = action.payload;
     },
-    setContrast(state: inputState, action: PayloadAction<number>) {
+    setContrast(state: FilterInputState, action: PayloadAction<number>) {
       state.contrast = action.payload;
     },
-    setHue(state: inputState, action: PayloadAction<number>) {
+    setHue(state: FilterInputState, action: PayloadAction<number>) {
       state.hue = action.payload;
     },
-    setBrightness(state: inputState, action: PayloadAction<number>) {
+    setBrightness(state: FilterInputState, action: PayloadAction<number>) {
       state.brightness = action.payload;
     },
-    setGrayscale(state: inputState, action: PayloadAction<number>) {
+    setGrayscale(state: FilterInputState, action: PayloadAction<number>) {
       state.grayscale = action.payload;
     },
-    setInvert(state: inputState, action: PayloadAction<number>) {
+    setInvert(state: FilterInputState, action: PayloadAction<number>) {
       state.invert = action.payload;
     },
-    setSepia(state: inputState, action: PayloadAction<number>) {
+    setSepia(state: FilterInputState, action: PayloadAction<number>) {
       state.sepia = action.payload;
     },
-    setblur(state: inputState, action: PayloadAction<number>) {
+    setblur(state: FilterInputState, action: PayloadAction<number>) {
       state.blur = action.payload;
     },
   },

@@ -1,17 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Coordinates, CropperRef } from "react-advanced-cropper";
-import testImage from "../../assets/FuQK6uvXgAMBirL.jpeg";
+import { CropState } from "../../types";
 
-interface inputState {
-  coordinates: Coordinates | null;
-  image: string | undefined;
-  showCropper: boolean;
-  isUploaded: boolean;
-}
-
-const initialState: inputState = {
+const initialState: CropState = {
   coordinates: { width: 0, height: 0, top: 0, left: 0 },
-  image: testImage,
+  image: "",
   showCropper: false,
   isUploaded: false,
 };
@@ -21,18 +13,18 @@ const inputValuesSlice = createSlice({
   initialState,
   reducers: {
     setCoordinates(
-      state: inputState,
-      action: PayloadAction<Coordinates | null>
+      state: CropState,
+      action: PayloadAction<CropState["coordinates"]>
     ) {
       state.coordinates = action.payload;
     },
-    setImage(state: inputState, action: PayloadAction<string | undefined>) {
+    setImage(state: CropState, action: PayloadAction<string | undefined>) {
       state.image = action.payload;
     },
-    setShowCropper(state: inputState, action: PayloadAction<boolean>) {
+    setShowCropper(state: CropState, action: PayloadAction<boolean>) {
       state.showCropper = action.payload;
     },
-    setIsUploaded(state: inputState, action: PayloadAction<boolean>) {
+    setIsUploaded(state: CropState, action: PayloadAction<boolean>) {
       state.isUploaded = action.payload;
     },
   },
